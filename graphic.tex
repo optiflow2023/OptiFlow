@@ -81,13 +81,16 @@ $\hfil\tilde{}\hfil$\crcr\noalign{\kern1.5pt}}}}}
 	\centering
 	\begin{tikzpicture}
 		\begin{axis}[
-			width=10in,
-			xmin= 0, xmax=100,
-			ymin= 0, ymax = 100,
+			width=20cm,
+			height = 10cm,
+			xmin= 0, xmax=5,
+			ymin= 0, ymax = 4,
 			axis lines = middle,
 		]
-			\addplot[domain=0:20, samples=100]{x};
-		\end{axis}
+		\addplot[domain=0:5, samples=1000, color = red]{(sin(deg(x)))^2+(sin(2*deg(x)))^2+ (sin(0.7*deg(x)))^2};
+		\addplot[domain=0:5, samples=1000]{(sin(deg(x)))^2+(sin(1.5*deg(x)))^2+ (sin(0.7*deg(x)))^2+1};
+		\addplot[domain=0:5, samples=1000]{3.5};
+	\end{axis}
 	\end{tikzpicture}
 	\caption{Fig}
 	\label{fig}
