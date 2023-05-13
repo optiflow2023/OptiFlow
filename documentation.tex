@@ -18,27 +18,35 @@
 }
 
 \begin{abstract}
-hola	
+In this project, we propose a novel manner to optimize the robustness of a supply chain through stochastic modeling of its disruptions.
 \end{abstract}
 
 \maketitle
 
 \section{Introduction}\label{sec1}
-hola
+Supply chain robustness is of paramount importance for businesses, as it not only ensures operational continuity 
+but also provides significant financial benefits. By investing in robust supply chains, 
+companies can minimize disruptions and associated costs, such as production delays, inventory shortages, 
+and customer dissatisfaction. A resilient supply chain reduces the likelihood of stockouts, thereby avoiding revenue losses and preserving customer loyalty. 
+Ultimately, supply chain robustness directly contributes to a company's bottom line and long-term profitability.
 
-
-\section{Parameters of the model}
-\begin{align*}
-	&c\\
-	&d\\
-	&K_1\\
-	&K_2\\
-	&\sigma
-.\end{align*}
-
+\section{Problem Statement}\label{sec2}
+We have a certain sales forecast, $s_t$, and a given storage capacity, $c_t$.
+We assume that when demanding a certain amount of units in inventory, $q_t$, we model the resultant amount of units in inventory
+as a normal distribution with mean $q_t$ and variance $\sigma^2$, a fixed parameter based on advanced studies about the state of the supply chain and its disruptions.
+With the help of cost functions that help us penalize both the storage and the penalization of the stockout, we want to find the optimal amount of units to order, $q_t$, in order to minimize the expected cost of the supply chain.
+These functions, decided by the company, are hereby assumed to be linear, with a fixed cost and a variable cost per unit, however,
+the model can be easily adapted to other types of functions.
 
 \section{Functions Definitions}
 \subsection{Storage Cost Function}
+We hereby define the storage cost function as follows:
+\begin{itemize}
+	\item $c$: fixed storage cost per unit
+	\item $K_1$: administrative cost per order
+	\item $n$: difference between the amount of units demanded in inventory and the amount of units forecasted to be sold
+\end{itemize}
+
 \begin{align*}
 	&c, K_1 \in \mathbb{R}\\
 	&n \equiv q_t - s_t\\
