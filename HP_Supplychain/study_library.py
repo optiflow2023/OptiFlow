@@ -37,6 +37,7 @@ def penalization_cost(qt, st):
   return D*n + K2
 
 
+#Density function
 def f_density(x, mu):  
     aux = norm.pdf(x, mu, SIGMA)
     return aux

@@ -6,11 +6,11 @@ import pickle
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from auxiliary_plot import *
+from auxiliary_plot_library import *
 
 
-st.markdown("# Plan Inventory 📈")
-st.sidebar.markdown("# Plan inventory 📈")
+st.markdown("# Plan Inventory 📋")
+st.sidebar.markdown("# Plan inventory 📋")
 
 
 #Get dataframe and sort by date
@@ -38,7 +38,7 @@ else:
 
 
 #Select Product
-st.subheader("Write product number")
+st.subheader("Select product number")
 num_prod = st.selectbox(
     'Select Product',
      df['product_number'].unique(),
@@ -47,10 +47,10 @@ num_prod = st.selectbox(
 
 
 #deserialize data
-with open('all_plots.pkl', 'rb') as f:
+with open('all_plots2.pkl', 'rb') as f:
     dictionary_plots = pickle.load(f)
 
-with open('x_plot.pkl', 'rb') as g:
+with open('x_plot2.pkl', 'rb') as g:
     x = pickle.load(g) 
 
 
