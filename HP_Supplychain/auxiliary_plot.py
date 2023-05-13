@@ -32,13 +32,16 @@ def plot_planning_graphic(start_date, end_date,x, dictionary_plots, num_prod):
     plt.legend(title='Inventory planning', loc='upper left')
     st.pyplot(plt)
 
-    return x2, i_t, s_t, qt
+    df = pd.DataFrame(list(zip(x, i_t, s_t, qt)), columns = ['Date','Inventory','Sales', 'Planning'])
+    return df
 
 
-def download_data_plot(x, i_t, s_t, qt):
+def download_data_plot(df):
+    csv = df.to_csv().encode('utf-8')
+
     st.download_button(
         label="Download data as CSV",
         data=csv,
-        file_name='large_df.csv',
+        file_name='Planning.csv',
         mime='text/csv',
     )

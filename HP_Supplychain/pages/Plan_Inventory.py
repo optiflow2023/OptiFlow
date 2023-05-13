@@ -39,20 +39,10 @@ else:
 
 #Select Product
 st.subheader("Write product number")
-st.number_input("Product number", key="prd_num")
-# You can access the value at any point with:
-num_prod = st.session_state.prd_num
-
-#Success/error
-success2 = False
-if (num_prod in df["product_number"].unique()):
-    success2 = True
-    st.success('Product number `%s` exists' % (num_prod))
-else:
-    success2 = False
-    st.error('Error: Product number does not exists')
-
-
+num_prod = st.selectbox(
+    'Select Product',
+     df['product_number'].unique(),
+)
 
 
 
@@ -66,9 +56,9 @@ with open('x_plot.pkl', 'rb') as g:
 
 #show graph if all fields correct and checkbox clicked
 if st.checkbox('Show planning graphic'):
-    if(success1 and success2):
-        x, i_t, s_t, qt = plot_planning_graphic(start_date, end_date,x, dictionary_plots, num_prod)
-        download_data_plot(x, i_t, s_t, qt)
+    if(success1):
+        df_plan = plot_planning_graphic(start_date, end_date,x, dictionary_plots, num_prod)
+        download_data_plot(df_plan)
     else:
         st.error("There are errors in previous fields")
         
