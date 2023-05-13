@@ -4,6 +4,7 @@ import datetime as dt
 import seaborn as sns
 import matplotlib.pyplot as plt
 from scipy.stats import norm
+import streamlit as st
 
 #######################################
 # Define constants for cost functions #
@@ -81,3 +82,31 @@ def general_solution(v_it, v_st):
         v_qt.append(solve_qt_it(v_st[i], v_it[i]))
     
     return v_qt
+
+
+#Create prediction graf
+def create_prediction_plots(num_prod, df, list_da):
+    i_t = []
+    s_t = []
+    qt = []
+    for d in list_da:
+        aux = df[(df['product_number']==num_prod) & (df['date']==d)]['inventory_units'].sum()
+        aux2 = df[(df['product_number']==num_prod) & (df['date']==d)]['sales_units'].sum()
+        if(aux2 > aux):
+            aux2 = aux
+        i_t.append(aux)
+        s_t.append(aux2)
+    
+    qt = general_solution(i_t, s_t)
+
+
+    #Plot graph
+    
+    #x = np.asarray(list_da, dtype='datetime64[s]')
+    #sns.lineplot(x = x, y = i_t, label='Inventory')
+    #sns.lineplot(x = x, y = s_t, label='Sales')
+    #ax = sns.lineplot(x = x, y = qt, label='Planning')
+    #plt.tick_params(axis='x', labelrotation=60)
+    #ax.set(xlabel='Date', ylabel='Units')
+    #plt.legend(title='Inventory planning', loc='upper left')
+    return [i_t, s_t, qt]
