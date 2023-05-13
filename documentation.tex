@@ -113,12 +113,11 @@ To do so, we will use the following approximation:
 Therefore, our problem can be mathematically stated as follows:
 \subsection{Theoretical}
 \begin{align*}
-	&\begin{cases}
-		q_t* = &argmin_{q_t}\left(loss\left( q_t \right)\right) \\
-		&\text{\textit{s.t.}}\\
-		&\text{\qquad \qquad} 0 \le q_t \le  c_t
-	\end{cases}
+	&\underset{q_t}{\text{argmin}} \text{\qquad \qquad}loss\left( q_t \right)\\ 
+	&\text{subject to}
+		\text{\qquad\quad} 0 \le q_t \le  c_t \text{\qquad} t = 1,\ldots,T
 .\end{align*}
+
 This allows us to find the optimal amount of units to order, $q_t*$, in order to minimize the expected cost of the supply chain,
 thus optimizing the supply chain robustness by preventing stockouts and minimizing storage costs.
 
