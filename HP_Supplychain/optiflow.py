@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 from scipy.stats import norm
 import streamlit as st
 
-#######################################
-# Define constants for cost functions #
-#######################################
+#########################################################
+# Define constants for cost functions and optimizations #
+#########################################################
 
 # Cost_storage
 C = 5
