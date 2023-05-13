@@ -27,7 +27,17 @@ hola
 hola
 
 
-\section{Funciones}
+\section{Parameters of the model}
+\begin{align*}
+	&c\\
+	&d\\
+	&K_1\\
+	&K_2\\
+	&\sigma
+.\end{align*}
+
+
+\section{Functions Definitions}
 \subsection{Storage Cost Function}
 \begin{align*}
 	&c, K_1 \in \mathbb{R}\\
@@ -56,8 +66,26 @@ hola
 
 
 \subsection{Loss function}
+\subsubsection{Theoretical}
 \begin{align*}
-	&
+	loss\left( q_t \right)   = \int_{s_t}^{q_t} &c\left( z,s_t \right) \cdot \Phi_{\mu, \sigma^2}\left( z \right) dz+ \\
+										&+ \int_{0}^{s_t} \delta\left( z,s_t \right)\cdot \Phi_{\mu, \sigma^2}\left( z \right) dz  
+.\end{align*}
+
+\subsubsection{Aproximation}
+\begin{align*}
+	loss\left( q_t \right)  = \sum_{i = s_t}^{q_t+step} &c\left( i,s_t \right) \cdot \Phi_{\mu, \sigma^2}\left( i, q_t \right) + \\
+	&+ \sum_{j = 0}^{s_t + step} \delta\left( j,s_t \right) \cdot \Phi_{\mu, \sigma^2}\left( j,q_t \right) 
+.\end{align*}
+
+\section{Problem Goal}
+\subsection{Theoretical}
+\begin{align*}
+	&\begin{cases}
+		min\left( q_t \right) = &loss\left( q_t \right) \\
+		&\text{\textit{Subjecto to:}}\\
+		&\text{\qquad \qquad} 0 \le q_t \le  c_t
+	\end{cases}
 .\end{align*}
 
 

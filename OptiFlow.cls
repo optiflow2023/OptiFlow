@@ -435,26 +435,26 @@
 
 \newcommand{\oddpagefooter}{\vbox{\hbox to \textwidth{\textit{OptiFlow,} \ifrevises\year@info, Vol.~\vol@info, Iss.~\issue@info,\ \else\fi \iferratum\relax p.~\else pp.~\fi\page@extent@info\hfill}
 \ifIET
-\vbox{\hbox to \textwidth{$\copyright$ The Institution of Engineering and Technology \cyear@info\hfill\thepage}}
+\vbox{\hbox to \textwidth{$\copyright$ HackUPC HP Challenge Supply Chain \cyear@info\hfill\thepage}}
 \else
 \ifOTHER
 \vbox{\hbox to \textwidth{$\copyright$ Yet to come\hfill\thepage}}%
 \else
 \ifCCBY
-\vbox{\hbox to \textwidth{This is an open access article published by the IET under the Creative Commons\hfill}}\par%
-\vbox{\hbox to \textwidth{Attribution License (http://creativecommons.org/licenses/by/3.0/)\hfill\thepage}}%
+\vbox{\hbox to \textwidth{-\hfill}}\par%
+\vbox{\hbox to \textwidth{-\hfill\thepage}}%
 \else
 \ifCCBYNC
-\vbox{\hbox to \textwidth{This is an open access article published by the IET under the Creative Commons\hfill}}\par%
-\vbox{\hbox to \textwidth{Attribution-NonCommercial License (http://creativecommons.org/licenses/by-nc/3.0/)\hfill\thepage}}%
+\vbox{\hbox to \textwidth{-\hfill}}\par%
+\vbox{\hbox to \textwidth{-\hfill\thepage}}%
 \else
 \ifCCBYND
-\vbox{\hbox to \textwidth{This is an open access article published by the IET under the Creative Commons\hfill}}\par%
-\vbox{\hbox to \textwidth{Attribution-NoDerivs License (http://creativecommons.org/licenses/by-nd/3.0/)\hfill\thepage}}%
+\vbox{\hbox to \textwidth{-\hfill}}\par%
+\vbox{\hbox to \textwidth{-\hfill\thepage}}%
 \else
 \ifCCBYNCND
-\vbox{\hbox to \textwidth{This is an open access article published by the IET under the Creative Commons\hfill}}\par%
-\vbox{\hbox to \textwidth{Attribution-NonCommercial-NoDerivs License (http://creativecommons.org/licenses/by-nc-nd/3.0/)\hfill\thepage}}
+\vbox{\hbox to \textwidth{-\hfill}}\par%
+\vbox{\hbox to \textwidth{-\hfill\thepage}}
 \else
 \fi
 \fi
@@ -474,11 +474,11 @@
 
 \newcommand{\evenerratumfoot}{\vbox{\fontsize{8}{10}\selectfont\sf%
 \hbox to \textwidth{\thepage\hfill}\par%
-\hbox to \textwidth{{$\copyright$ The Institution of Engineering and Technology \cyear@info}\hfill{\textit{IET Research Journals,}\ \cyear@info,\ \ifrevises\year@info, Vol.~\vol@info, Iss.~\issue@info,\ \else\fi p.~\page@extent@info}}}}%
+\hbox to \textwidth{{$\copyright$ HackUPC HP Challenge Supply Chain \cyear@info}\hfill{\textit{OptiFlow,}\ \cyear@info,\ \ifrevises\year@info, Vol.~\vol@info, Iss.~\issue@info,\ \else\fi p.~\page@extent@info}}}}%
 
 \newcommand{\odderratumfoot}{\vbox{\fontsize{8}{10}\selectfont\sf%
 \hbox to \textwidth{\hfill\thepage}\par%
-\hbox to \textwidth{{\textit{IET Research Journals,}\ \cyear@info,\ \ifrevises\year@info, Vol.~\vol@info, Iss.~\issue@info,\ \else\fi p.~\page@extent@info}\hfill{$\copyright$ The Institution of Engineering and Technology \cyear@info}}}}%
+\hbox to \textwidth{{\textit{OptiFlow,}\ \cyear@info,\ \ifrevises\year@info, Vol.~\vol@info, Iss.~\issue@info,\ \else\fi p.~\page@extent@info}\hfill{$\copyright$ HackUPC HP Challenge Supply Chain \cyear@info}}}}%
 
 %\setcounter{footnote}{0}
 \renewcommand\thefootnote{\@fnsymbol\c@footnote}
@@ -495,8 +495,8 @@
   \def\titlemark##1{\markboth{##1}{##1}}}%
 
 \def\ps@erratumpage{%
-  \def\@evenhead{\hbox to \hsize{\sf\fontsize{16}{18}\bfseries\selectfont www.ietdl.org\hfill}}
-  \def\@oddhead{\hbox to \hsize{\sf\fontsize{16}{18}\bfseries\selectfont www.ietdl.org\hfill}}%
+  \def\@evenhead{\hbox to \hsize{\sf\fontsize{16}{18}\bfseries\selectfont -\hfill}}
+  \def\@oddhead{\hbox to \hsize{\sf\fontsize{16}{18}\bfseries\selectfont -\hfill}}%
   \def\@evenfoot{\evenerratumfoot}
   \def\@oddfoot{\odderratumfoot}%
 }%
@@ -1489,8 +1489,8 @@
 \fi
 \fi
 
-\CYear{2015}
-\Year{2015}
+\CYear{2023}
+\Year{2023}
 
 \def\correnvelope{\includegraphics{IET_email_icon.eps}}%
 

@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1684008085 "documentation.tex" "documentation.pdf" "documentation" 1684008086
+["pdflatex"] 1684010156 "documentation.tex" "documentation.pdf" "documentation" 1684010157
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm" 1136768653 4484 b828043cbd581d289d955903c1339981 ""
@@ -56,6 +56,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb" 1248133631 32442 c975af247b6702f7ca0c299af3616b80 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb" 1248133631 36607 d654cb3f2bc54f57509240071db3bffa ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb" 1248133631 30212 b6aafa449db0097a6b9b890f66741063 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/euler/euex9.pfb" 1336858727 11989 67a4948745f40b24c545cc3a48a6472a ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb" 1136849748 35941 f27169cc74234d5bd5e4cca5abafaabb ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb" 1136849748 44648 23115b2a545ebfe2c526c3ca99db8b95 ""
@@ -123,9 +124,9 @@
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1668072226 2826445 4acc7eccffd65e3c4ea8460102643909 ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
   "LogoOptiFlow.jpeg" 1683999255 63396 afd033795bd6ac74cc5edfe57e86edc5 ""
-  "OptiFlow.cls" 1684001812 47811 2e0cc28c149214e77b6fc5801dd7809a ""
-  "documentation.aux" 1684008086 798 b20bc701c108cdad5442581395004977 "pdflatex"
-  "documentation.tex" 1684008085 1416 8605f368cf0afd2cab76fb4741e9726c ""
+  "OptiFlow.cls" 1684008577 46443 69dc46c73b67bdad25d31afe0bd157a1 ""
+  "documentation.aux" 1684010157 1354 8124202ad3e522fe07fca6aa932a2b82 "pdflatex"
+  "documentation.tex" 1684010155 2305 44b8c5ee5b365ae90cb671b2511dafb9 ""
   (generated)
   "documentation.aux"
   "documentation.log"
