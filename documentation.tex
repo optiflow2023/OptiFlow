@@ -57,6 +57,13 @@ We hereby define the storage cost function as follows:
 .\end{align*}
 
 \subsection{Penalization Cost Function}
+We hereby define the penalization cost function as follows, this is the cost of having a stockout:
+\begin{itemize}
+	\item $d$: fixed cost per unit
+	\item $K_2$: administrative cost per order
+	\item $n$: difference between the amount of units forecasted to be sold and the amount of units demanded in inventory
+\end{itemize}
+
 \begin{align*}
 	&d,K_2 \in  \mathbb{R}\\
 	&n \equiv s_t - q_t\\
@@ -67,34 +74,58 @@ We hereby define the storage cost function as follows:
 .\end{align*}
 
 \subsection{Normal Density Function}
+We hereby define the normal density function as follows:
+\begin{itemize}
+	\item $\mu \equiv q_t$: mean of the normal distribution, parameter to be optimized
+	\item $\sigma^2$: variance of the normal distribution, fixed parameter
+	\item $x$: value of the random variable
+\end{itemize}
+
 \begin{align*}
 	&\sigma \in \mathbb{R}\\
-	&\Phi_{\mu, \sigma^2}\left( x \right)   = \frac{1}{\sigma \sqrt{2\pi} }e^{- \frac{\left( x-\mu \right) ^2}{2 \sigma^2}}
+	&\Phi_{\mu=q_t, \sigma^2}\left( x \right)   = \frac{1}{\sigma \sqrt{2\pi} }e^{- \frac{\left( x-\mu \right) ^2}{2 \sigma^2}}
 .\end{align*}
 
 
 \subsection{Loss function}
+We assumed that given a demanded amount of units in inventory, $q_t$, the resultant amount of units in inventory
+follows a normal distribution with mean $q_t$ and variance $\sigma^2$, that is only on the positive real numbers (and therefore scaled).
+We must penalize two things, the storage and the penalization of the stockout, therefore, we define the loss function as 
+the expected value of the sum of the storage cost function and the penalization cost function, as follows:
+
 \subsubsection{Theoretical}
 \begin{align*}
 	loss\left( q_t \right)   = \int_{s_t}^{q_t} &c\left( z,s_t \right) \cdot \Phi_{\mu, \sigma^2}\left( z \right) dz+ \\
 										&+ \int_{0}^{s_t} \delta\left( z,s_t \right)\cdot \Phi_{\mu, \sigma^2}\left( z \right) dz  
 .\end{align*}
 
+As we are solving this problem numerically, and depending on the decided cost 
+functions, the problem does not admit a closed form solution, therefore, we must approximate the loss function.
+To do so, we will use the following approximation:
+
 \subsubsection{Aproximation}
 \begin{align*}
-	loss\left( q_t \right)  = \sum_{i = s_t}^{q_t+step} &c\left( i,s_t \right) \cdot \Phi_{\mu, \sigma^2}\left( i, q_t \right) + \\
+	loss\left( q_t \right)  \approx \sum_{i = s_t}^{q_t+step} &c\left( i,s_t \right) \cdot \Phi_{\mu, \sigma^2}\left( i, q_t \right) + \\
 	&+ \sum_{j = 0}^{s_t + step} \delta\left( j,s_t \right) \cdot \Phi_{\mu, \sigma^2}\left( j,q_t \right) 
 .\end{align*}
 
 \section{Problem Goal}
+Therefore, our problem can be mathematically stated as follows:
 \subsection{Theoretical}
 \begin{align*}
 	&\begin{cases}
-		min\left( q_t \right) = &loss\left( q_t \right) \\
-		&\text{\textit{Subjecto to:}}\\
+		q_t* = &argmin_{q_t}\left(loss\left( q_t \right)\right) \\
+		&\text{\textit{s.t.}}\\
 		&\text{\qquad \qquad} 0 \le q_t \le  c_t
 	\end{cases}
 .\end{align*}
+This allows us to find the optimal amount of units to order, $q_t*$, in order to minimize the expected cost of the supply chain,
+thus optimizing the supply chain robustness by preventing stockouts and minimizing storage costs.
 
+\section{Problem Solution: Numerical Optimization}
+As we are solving this problem numerically, we must define a numerical optimization method.
+We will use a grid search of the $\mu \equiv q_t$ parameter, with a step of 1, and then we will use that as an approximation of the optimal value of $q_t$.
+This has the advantage of being numerically simple, and it is also easy to implement in a computer program, and its speed can be 
+regulated by changing the step size, sacrificing the accuracy of the prediction.
 
 \end{document}
