@@ -24,8 +24,10 @@
 \newmdtheoremenv{result}{Result}
 \newmdtheoremenv{def}{Definition}
 \usepackage[left=1cm, right=1cm, top=2cm, bottom=2cm]{geometry}
+\usetikzlibrary{shapes.misc}
 
 
+\usetikzlibrary{arrows, arrows.meta}
 
 % figure support
 \usepackage{import}
@@ -41,6 +43,10 @@
 	\import{./figures/}{#1.pdf_tex}
 }
 \usepackage{fancyhdr}
+
+\tikzset{cross/.style={cross out, draw=black, minimum size=2*(#1-\pgflinewidth), inner sep=0pt, outer sep=0pt, style = ultra thick},
+%default radius will be 1pt. 
+cross/.default={5pt}}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -60,6 +66,7 @@ $\hfil\displaystyle{#1}\hfil$\crcr\noalign{\kern1.5pt\nointerlineskip}
 $\hfil\tilde{}\hfil$\crcr\noalign{\kern1.5pt}}}}}
 
 
+
 \newcommand{\mybox}{%
     \collectbox{%
         \setlength{\fboxsep}{1pt}%
@@ -67,7 +74,7 @@ $\hfil\tilde{}\hfil$\crcr\noalign{\kern1.5pt}}}}}
     }%
 }
 
-\setlength\parindent{0pt}
+\setlength\parindent{0ptin
 
 \pdfsuppresswarningpagegroup=1
 
@@ -79,22 +86,46 @@ $\hfil\tilde{}\hfil$\crcr\noalign{\kern1.5pt}}}}}
 
 \begin{figure}[ht]
 	\centering
-	\begin{tikzpicture}
+	\begin{tikzpicture}[font=\sffamily,
+declare function={gauss(\x,\y,\z)=1/(\y*sqrt(2*pi))*exp(-((\x-\z)^2)/(2*\y^2));}]
+
 		\begin{axis}[
 			width=20cm,
 			height = 10cm,
-			xmin= 0, xmax=5,
+			xmin= 0, xmax=4,
 			ymin= 0, ymax = 4,
 			axis lines = middle,
+			yticklabels={,,},
+			xticklabels={,,},
 		]
-		\addplot[domain=0:5, samples=1000, color = red]{(sin(deg(x)))^2+(sin(2*deg(x)))^2+ (sin(0.7*deg(x)))^2};
-		\addplot[domain=0:5, samples=1000]{(sin(deg(x)))^2+(sin(1.5*deg(x)))^2+ (sin(0.7*deg(x)))^2+1};
-		\addplot[domain=0:5, samples=1000]{3.5};
+		\addplot[domain=0:4, samples=1000, color = orange, style = ultra thick]{(sin(deg(x)))^2+(sin(2*deg(x)))^2+ (sin(0.7*deg(x)))^2};
+		\addplot[domain=0:4, samples=1000, color = olive, style = thick, dashed]{(sin(deg(x)))^2+(sin(1.5*deg(x)))^2+ (sin(0.7*deg(x)))^2+1};
+		\addplot[domain=0:4, samples=1000, color = blue, style = ultra thick]{3.5};
+
+		\addplot[thick, samples=50, smooth,domain=0:6,gray, dashed] coordinates {(1.75,0)(1.75,4)};
+
+		\draw (1.75,3.097) node[cross, red]{};
+		\draw[>=triangle 45, <->] (1.7,0) -- (1.7,1.976);
+		\draw[>=triangle 45, <->] (1.7,1.976) -- (1.7,3.097);
+		
+		\draw[gray, dashed, ultra thick] (1.6,1.976) -- (1.8,1.976);
+
+		
+		\addplot [domain=-3:0, thick] ({1.75+gauss(x,0.9,0)},1.976+x);
+
+		\draw[red] (1.85, 3.097) node {$q_t$};
+		\draw (1.6, 2.5365) node {$C\left( n \right) $};i
+		\draw (1.6, 0.988) node {$\delta\left( n \right) $};
+		\draw[orange] (3.5, 1.2) node {$s_t$};
+		\draw[olive] (3.5, 2.5) node {$q_t$};
+		\draw[blue] (3.5, 3.7) node {$c_t$};
+		\draw[black] (2.3,1.1) node {$\Phi_{\mu=q_t, \sigma^2}\left( x \right) $};
 	\end{axis}
 	\end{tikzpicture}
-	\caption{Fig}
+	\caption{Example figure}
 	\label{fig}
 \end{figure}	
+
 
 \end{document}
 
