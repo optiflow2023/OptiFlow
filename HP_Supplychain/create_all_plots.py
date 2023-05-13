@@ -22,15 +22,15 @@ x = np.asarray(list_da, dtype='datetime64[s]')
 
 cont = 0
 for p in list_pn:
-    value = create_prediction_plots(p, df, list_da)
+    value = create_prediction_plots_max(p, df, list_da)
     dictionary_plots[p] = value
     print(cont)
     cont += 1
 
-with open('all_plots.pkl', 'wb') as f:  # open a text file
+with open('all_plots2.pkl', 'wb') as f:  # open a text file
     pickle.dump(dictionary_plots, f) # serialize the list
 
-with open('x_plot.pkl', 'wb') as g:  # open a text file
+with open('x_plot2.pkl', 'wb') as g:  # open a text file
     pickle.dump(x, g) # serialize the list
 
 

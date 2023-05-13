@@ -67,7 +67,8 @@ with open('x_plot.pkl', 'rb') as g:
 #show graph if all fields correct and checkbox clicked
 if st.checkbox('Show planning graphic'):
     if(success1 and success2):
-        plot_planning_graphic(start_date, end_date,x, dictionary_plots, num_prod)
+        x, i_t, s_t, qt = plot_planning_graphic(start_date, end_date,x, dictionary_plots, num_prod)
+        download_data_plot(x, i_t, s_t, qt)
     else:
         st.error("There are errors in previous fields")
         

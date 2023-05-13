@@ -31,3 +31,14 @@ def plot_planning_graphic(start_date, end_date,x, dictionary_plots, num_prod):
     ax.set(xlabel='Date', ylabel='Units')
     plt.legend(title='Inventory planning', loc='upper left')
     st.pyplot(plt)
+
+    return x2, i_t, s_t, qt
+
+
+def download_data_plot(x, i_t, s_t, qt):
+    st.download_button(
+        label="Download data as CSV",
+        data=csv,
+        file_name='large_df.csv',
+        mime='text/csv',
+    )

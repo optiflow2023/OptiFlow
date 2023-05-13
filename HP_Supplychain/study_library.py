@@ -99,14 +99,22 @@ def create_prediction_plots(num_prod, df, list_da):
     
     qt = general_solution(i_t, s_t)
 
+    return [i_t, s_t, qt]
 
-    #Plot graph
+
+#Create prediction graf max
+def create_prediction_plots_max(num_prod, df, list_da):
+    i_t = []
+    s_t = []
+    qt = []
+    for d in list_da:
+        aux = df[(df['product_number']==num_prod)]['inventory_units'].max()
+        aux2 = df[(df['product_number']==num_prod) & (df['date']==d)]['sales_units'].sum()
+        if(aux2 > aux):
+            aux2 = aux
+        i_t.append(aux)
+        s_t.append(aux2)
     
-    #x = np.asarray(list_da, dtype='datetime64[s]')
-    #sns.lineplot(x = x, y = i_t, label='Inventory')
-    #sns.lineplot(x = x, y = s_t, label='Sales')
-    #ax = sns.lineplot(x = x, y = qt, label='Planning')
-    #plt.tick_params(axis='x', labelrotation=60)
-    #ax.set(xlabel='Date', ylabel='Units')
-    #plt.legend(title='Inventory planning', loc='upper left')
+    qt = general_solution(i_t, s_t)
+
     return [i_t, s_t, qt]
