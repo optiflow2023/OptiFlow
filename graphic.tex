@@ -1,0 +1,97 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{amsmath, amssymb}
+\usepackage{mdframed}
+\usepackage{pgfplots}
+\usepackage{import}
+\usepackage{mathrsfs}
+\usepackage{xifthen}
+\usepackage{float}
+\usepackage{nicematrix}
+\usepackage{pdfpages}
+\usepackage{tcolorbox}
+\usepackage{transparent}
+\pgfplotsset{compat=1.18}
+\usepackage{tikz}
+\newmdtheoremenv{theo}{Theorem}
+\newmdtheoremenv{lema}{Lema}
+\newmdtheoremenv{prop}{Proposició}
+\newmdtheoremenv{corol}{Corol·lari}
+\newmdtheoremenv{definition}{Definition}
+\newmdtheoremenv{result}{Result}
+\newmdtheoremenv{def}{Definition}
+\usepackage[left=1cm, right=1cm, top=2cm, bottom=2cm]{geometry}
+
+
+
+% figure support
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{collectbox}
+\usepackage{enumerate}
+\usepackage{amsfonts}
+\pdfminorversion=7
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+	\def\svgwidth{\columnwidth}
+	\import{./figures/}{#1.pdf_tex}
+}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Adalt dreta}
+\lhead{Jan Tarrats Castillo}
+\rfoot{Pàgina \thepage}
+
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+\def\undertilde#1{\mathord{\vtop{\ialign{##\crcr
+$\hfil\displaystyle{#1}\hfil$\crcr\noalign{\kern1.5pt\nointerlineskip}
+$\hfil\tilde{}\hfil$\crcr\noalign{\kern1.5pt}}}}}
+
+
+\newcommand{\mybox}{%
+    \collectbox{%
+        \setlength{\fboxsep}{1pt}%
+        \fbox{\BOXCONTENT}%
+    }%
+}
+
+\setlength\parindent{0pt}
+
+\pdfsuppresswarningpagegroup=1
+
+\title{Titol}
+\author{Jan Tarrats Castillo}
+\date{\textbf{Teoria}: Profe \ \textbf{Problemes}: Profe}
+
+\begin{document}
+
+\begin{figure}[ht]
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			width=10in,
+			xmin= 0, xmax=100,
+			ymin= 0, ymax = 100,
+			axis lines = middle,
+		]
+			\addplot[domain=0:20, samples=100]{x};
+		\end{axis}
+	\end{tikzpicture}
+	\caption{Fig}
+	\label{fig}
+\end{figure}	
+
+\end{document}
+
