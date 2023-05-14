@@ -1,5 +1,5 @@
 \newcommand\classname{IEE-CTA}
-\newcommand\lastmodifieddate{2016/09/02}
+\newcommand\lastmodifieddate{2023}
 \newcommand\versionnumber{0.1}
 
 % Are we printing crop marks?
