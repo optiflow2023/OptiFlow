@@ -22,10 +22,10 @@ K2 = 5
 SIGMA = 100
 
 # f_loss
-step = 5
+step = 1
 
 # Solve_qt
-step_s = 20
+step_s = 10
 
 
 #########################
@@ -113,7 +113,7 @@ def f_loss(qt:float,st:float) -> float:
 
 
 # Solve qt
-def solve_qt_it(st,ct) -> tuple:
+def solve_qt_it(st,ct) -> list:
     """ Solves the inventory problem for a given week t.
 
     Args:
@@ -124,10 +124,10 @@ def solve_qt_it(st,ct) -> tuple:
         Optimal inventory (float).
     """
     if st == ct:
-        return st
+        return st, f_loss(st,st), f_loss(st,st)
     
     rng = np.arange(st, ct, step_s)
-    min_loss = np.inf
+    min_loss = 1000
     min_qt = 0
     for q in rng:
         aux_loss = f_loss(q,st)
@@ -135,13 +135,9 @@ def solve_qt_it(st,ct) -> tuple:
             min_loss = aux_loss
             min_qt = q
 
-    loss2 = f_loss(ct,st)
-    lt = []
-    lt.append(min_qt)
-    lt.append(min_loss)
-    lt.append(loss2)
+    loss2 = f_loss(st,st)
 
-    return lt
+    return min_qt, min_loss, loss2
 
 
 # Solve q_t
@@ -160,10 +156,7 @@ def general_solution(v_ct, v_st) -> tuple:
     l = len(v_ct)
     v_qt = []
     for i in range(l):
-        re = solve_qt_it(v_st[i], v_ct[i])
-        qt = re[0]
-        loss_t = re[1]
-        loss_t2 = re[2]
+        qt, loss_t, loss_t2 = solve_qt_it(v_st[i], v_ct[i])
         loss_sum += loss_t
         loss_sum2 += loss_t2
         v_qt.append(qt) 
