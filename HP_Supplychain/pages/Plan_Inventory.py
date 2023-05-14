@@ -14,7 +14,7 @@ st.sidebar.markdown("# Plan inventory 📋")
 
 
 #Get dataframe and sort by date
-df = pd.read_csv("../train.csv")
+df = pd.read_csv("./train.csv")
 df = df.sort_values(by = ["date"])
 
 
@@ -47,10 +47,10 @@ num_prod = st.selectbox(
 
 
 #deserialize data
-with open('all_plots2.pkl', 'rb') as f:
+with open('Plotting_Data/all_plots2.pkl', 'rb') as f:
     dictionary_plots = pickle.load(f)
 
-with open('x_plot2.pkl', 'rb') as g:
+with open('Plotting_Data/x_plot2.pkl', 'rb') as g:
     x = pickle.load(g) 
 
 
