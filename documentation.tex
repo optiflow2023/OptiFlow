@@ -271,14 +271,14 @@ and therefore the optimal amount of units to order is much closer to the capacit
 \section{Quantification of the robustness of the supply chain: expected profit}
 We will now quantify the robustness of the supply chain by calculating the expected percentage improvement of the supply chain.
 This is computing by substracting the loss function from the forecasted sales (naive approach) to the optimal amount of units to order that we computed.
-This value yields 34\%, and if we put out loss function units in USD, this means that we are saving XXXX USD in the supply chain thanks to our optimization model.
+This value results in a significant improvement of 17\%, which is noteworthy considering the magnitudes of the transactions involved.
 Note that this value is slightly inflated as it is computed knowing the true sales forecast, when in reality
 we only dispose of a forecast of the sales, and therefore, the expected improvement of the supply chain can be lower than this value.
 
 
 \section{Conclusions and future work}
 We have concluded that this method, assuming the parameters we initialized were reasonable to model the supply chain disruptions,
-is a good way to optimize the supply chain, as it is simple to implement, and it yields good results in the ideal case: an average 34\% improvement.
+is a good way to optimize the supply chain, as it is simple to implement, and it yields good results in the ideal case: an average 17\% improvement.
 However, further work must be done to estimate the loss functions and disruption of the supply chain,
 modeled by the $\sigma^2$ parameter. This should be based on both historical data, an analysis including providers and customers
 and information on the supply chain disruptions, and it should be done for each product, as each product has likely a different supply chain.
