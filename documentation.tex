@@ -213,6 +213,7 @@ To do so, we will use the following approximation:
 \section{Problem Goal}
 Therefore, our problem can be mathematically stated as follows:
 \subsection{Theoretical}
+\vspace{-5mm}
 \begin{align*}
 	&\underset{q_t}{\text{argmin}} \text{\qquad \qquad}loss\left( q_t \right)\\ 
 	&\text{subject to}
@@ -236,10 +237,11 @@ as the supposed sales forecast.
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=0.4\textwidth]{25662.png}
+	\caption{Inventory Planning 25662}
 	\label{fig:graf1}
 \end{figure}
 
-As we can see in the plot, the optimal amount of units to order 
+As we can see in figure \ref{fig:graf1}, the optimal amount of units to order 
 fluctuates in values over the forecasted amount of sales, and it is always below the capacity of the warehouse.
 This is because the cost of having a stockout is much higher than the cost of having a surplus of units in inventory,
 and therefore, the optimal solution is to order more units than the forecasted amount of sales, in order to prevent stockouts.
@@ -252,14 +254,18 @@ We will now show an example of the solution of the problem for a certain other p
 We will again assume that the capacity is the maximum of the inventory in the time frame we are looking at, and use the reported sales 
 as the supposed sales forecast.
 
+\vspace{-2mm}
+
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=0.4\textwidth]{7896.png}
+	\caption{Inventory Planning 7896}
 	\label{fig:graf2}
 \end{figure}
 
+\vspace{-2mm}
 
-As we can see in the plot, this case is different from the previous one, as the demand stresses the capacity of the warehouse,
+As we can see in figure \ref{fig:graf2}, this case is different from the previous one, as the demand stresses the capacity of the warehouse,
 and therefore the optimal amount of units to order is much closer to the capacity of the warehouse, even matching it in the last observation.
 
 \section{Quantification of the robustness of the supply chain: expected profit}
