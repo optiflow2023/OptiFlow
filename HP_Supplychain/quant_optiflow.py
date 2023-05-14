@@ -22,10 +22,10 @@ K2 = 5
 SIGMA = 100
 
 # f_loss
-step = 1
+step = 5
 
 # Solve_qt
-step_s = 10
+step_s = 20
 
 
 #########################
@@ -113,7 +113,7 @@ def f_loss(qt:float,st:float) -> float:
 
 
 # Solve qt
-def solve_qt_it(st: float,ct: float)-> float:
+def solve_qt_it(st,ct) -> tuple:
     """ Solves the inventory problem for a given week t.
 
     Args:
@@ -135,11 +135,17 @@ def solve_qt_it(st: float,ct: float)-> float:
             min_loss = aux_loss
             min_qt = q
 
-    return min_qt, min_loss, f_loss(ct,st)
+    loss2 = f_loss(ct,st)
+    lt = []
+    lt.append(min_qt)
+    lt.append(min_loss)
+    lt.append(loss2)
+
+    return lt
 
 
 # Solve q_t
-def general_solution(v_ct: np.array, v_st: np.array) -> np.array:
+def general_solution(v_ct, v_st) -> tuple:
     """ Solves the inventory problem for a given vector of weeks t.
 
     Args:
@@ -154,7 +160,10 @@ def general_solution(v_ct: np.array, v_st: np.array) -> np.array:
     l = len(v_ct)
     v_qt = []
     for i in range(l):
-        qt,loss_t, loss_t2= solve_qt_it(v_st[i], v_ct[i])
+        re = solve_qt_it(v_st[i], v_ct[i])
+        qt = re[0]
+        loss_t = re[1]
+        loss_t2 = re[2]
         loss_sum += loss_t
         loss_sum2 += loss_t2
         v_qt.append(qt) 
@@ -163,7 +172,7 @@ def general_solution(v_ct: np.array, v_st: np.array) -> np.array:
 
 
 # Create prediction graph
-def create_prediction_plots(num_prod: int, df: pd.DataFrame, list_da: list)-> list:
+def create_prediction_plots(num_prod: int, df: pd.DataFrame, list_da: list):
     """ Creates the prediction plots for a given product.
 
     Args:
@@ -213,6 +222,6 @@ def create_prediction_plots_max(num_prod, df, list_da):
         c_t.append(aux)
         s_t.append(aux2)
     
-    q,loss, loss2 = general_solution(c_t, s_t)
+    q, loss, loss2 = general_solution(c_t, s_t)
 
     return [c_t, s_t, qt], loss, loss2
